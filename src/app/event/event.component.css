@@ -1,0 +1,27 @@
+.toolbar{
+    background-color: white;
+    width: 97%;
+    height: 600px;
+    border-style: solid;
+    border-color: grey;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 10px;
+ 
+
+}
+
+#liste_event{
+    overflow-y:scroll;
+}
+
+.one_event{
+    background-color:  #EEEEEE;
+    width: 95%;
+    height: 100px;
+    margin-left: 20px;
+    border-style: solid;
+    border-color: grey;
+
+    
+}
