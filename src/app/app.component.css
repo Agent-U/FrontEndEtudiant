@@ -1,38 +1,29 @@
 
-.toolbar{
-    position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    background-color: #EEEEEE;
-    color: black;
-    font-weight: 600;
+
+
+#card-selection{
+  align-items: center;
+  margin-top: 200px;
 }
 
-.image_logo{
-  width: 100%;
-
+.card{
+  width: 300px;
+  height: 300px;
+  background-color:white;
+  border-radius: 10px;
+  margin-left: 100px;
+  margin-bottom: 100px;
+  
+  
 }
 
-#user_name{
-  float: right;
-  margin-right: 1%;
-  height: 100%;
-}
-
-#logo{
-  margin-top: 1%;
-  margin-left: 50%;
-  margin-right: 50%;
-}
-.bar_nav{
-    position: absolute;
-    font-weight: 600;
-    left: 0;
-    right: 0;
-
+.card-title{
+  font-style: oblique;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
 
 }
