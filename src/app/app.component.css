@@ -4,6 +4,7 @@
 #card-selection{
   align-items: center;
   margin-top: 200px;
+  margin-left: 50px;
 }
 
 .card{
@@ -12,10 +13,10 @@
   background-color:white;
   border-radius: 10px;
   margin-left: 100px;
-  margin-bottom: 100px;
-  
-  
+  margin-bottom: 100px; 
 }
+
+
 
 .card-title{
   font-style: oblique;
