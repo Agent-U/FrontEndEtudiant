@@ -2,16 +2,22 @@
 
     <div class="row">
         <div class = "col-6" >
-            <div class="toolbar" id="liste_event" role="banner">
-                <div class="git " *ngFor="let event of events">
+            <div class="toolbar tool" id="liste_event" role="banner">
+                <div class="row" *ngFor="let event of events">
+                <div class="one_event" >
                     <h3>{{event.titre}}</h3>
                     <p> {{event.detail}}</p>
+                </div>
+                <div class="one_event" >
+                    <h3>{{event.titre}}</h3>
+                    <p> {{event.detail}}</p>
+                </div>
                 </div>
 
             </div>
         </div>
         <div class="col-6">
-            <div class="toolbar" role="banner">
+            <div class="toolbar tool" role="banner">
                 
             </div>
 
