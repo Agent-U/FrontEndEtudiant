@@ -1,0 +1,32 @@
+.tool{
+    background-color: white;
+    width: 97%;
+    height: 600px;
+    border-style: solid;
+    border-color: grey;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 10px;
+ 
+
+}
+
+#liste_event{
+    overflow-y:scroll;
+    width: 97%;
+    height: 600px;
+}
+
+.one_event{
+    background-color:  #EEEEEE;
+    width: 93%;
+    height: 100px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    border-style: solid;
+    border-color: grey;
+    border-radius: 5px;
+    padding-left: 10px;
+
+    
+}
