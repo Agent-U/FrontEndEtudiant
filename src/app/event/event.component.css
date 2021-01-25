@@ -1,3 +1,8 @@
+.event_page{
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
 .tool{
     background-color: white;
     width: 97%;
@@ -17,11 +22,15 @@
     height: 600px;
 }
 
+#row_event{
+    margin-right: 0px;
+}
 .one_event{
     background-color:  #EEEEEE;
     width: 93%;
     height: 100px;
-    margin-left: 30px;
+    margin-left: 35px;
+
     margin-bottom: 20px;
     border-style: solid;
     border-color: grey;
