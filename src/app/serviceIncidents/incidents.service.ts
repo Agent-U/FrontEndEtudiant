@@ -29,7 +29,9 @@ export class IncidentsService {
     return this.http.get("https://agentu.herokuapp.com/etudiants/"+id);
   }
 
-  
+  public addIncident(incidents:Incident){
+    return this.http.post("https://agentu.herokuapp.com/incidents/",incidents,optionRequete);
+  }  
 
 
 }
