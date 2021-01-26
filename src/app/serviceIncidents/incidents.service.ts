@@ -20,5 +20,10 @@ export class IncidentsService {
 
   constructor(private http:HttpClient) { }
 
+  public getIncidents(){
+    return this.http.get("https://agentu.herokuapp.com/incidents/");
+ 
+  }
+
 
 }
