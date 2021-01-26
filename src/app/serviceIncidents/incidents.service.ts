@@ -25,5 +25,11 @@ export class IncidentsService {
  
   }
 
+  public getEtudiantWithId(id:number){
+    return this.http.get("https://agentu.herokuapp.com/etudiants/"+id);
+  }
+
+  
+
 
 }
