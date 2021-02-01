@@ -21,8 +21,8 @@ export class AppServiceService {
   
    }
 
-   public setEtudiant(mdp: string){
-    return this.http.get("/api/etudiants/",optionRequete);
+   public setEtudiant(etudiant:any){
+    return this.http.put("/api/etudiants/",etudiant,optionRequete);
  
   }
 }
