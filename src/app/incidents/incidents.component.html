@@ -1,0 +1,92 @@
+
+<div class="row">
+    <div class = "col-6" >
+
+        <h1> {{messageAdd}}</h1>
+        <div class="toolbar tool" id="incident_card" role="banner">
+            <div class="container">
+                <div class="row">
+                          
+                    
+                    
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <form>
+                                    <fieldset id="form-field">
+                    
+                                        <div class="form-group">
+
+                                            <label for="id"><span class="req">* </span> id: </label>
+                                            <input required type="text" [(ngModel)]="incident1.id" name="id" id="txt"
+                                                class="form-control phone" maxlength="28" placeholder="id..." />
+                                        </div>
+                    
+                                        <div class="form-group">
+                                            <label for="date"><span class="req">* </span> Date: </label>
+                                            <input class="form-control" type="text" [(ngModel)]="incident1.date" name="date" id="txt" required
+                                                placeholder="date" />
+                                            <div id="errFirst"></div>
+                                        </div>
+                    
+                                        <div class="form-group">
+                                            <label for="motif"><span class="req">* </span> Motif: </label>
+                                            <input class="form-control" type="text" [(ngModel)]="incident1.motif" name="motif" id="txt"
+                                                placeholder="motif" required />
+                                            <div id="errLast"></div>
+                                        </div>
+                    
+                                        <div class="form-group">
+                                            <label for="lieu"><span class="req">* </span> Lieu: </label>
+                                            <input class="form-control" required type="text" [(ngModel)]="incident1.lieu" name="lieu"
+                                                id="email" placeholder="lieu" />
+                                            <div class="status" id="status"></div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="image"><span class="req">* </span> Image: </label> <br>
+                                            <input type="file" accept="image/*" (change)="showPreviewImage($event)">
+                                            <img style="height: 50px; width: 50px;" [src]="localUrl" *ngIf="localUrl" class="imgPlaceholder">
+                                            <div class="status" id="status"></div>
+                                        </div>
+
+                        
+                                        <div class="form-group">
+                                            <input class="btn btn-success" type="submit" name="submit_reg" value="Register" (click)="ajouterIncident()">
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div> 
+                    
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+                </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="toolbar tool" id="incident_card" role="banner">
+             <h1 id="incidTitGene" >Incidents signalés</h1>
+            <div class="row" *ngFor="let incident of incidents">
+                <div class="one_incident" >
+                    <h1 id="incidTitre" >{{incident.motif}}</h1>
+
+                    <div id="incidDate" >  <b>Signalé le : {{incident.date}} </b> </div>
+                    <div class="incidEtat" [ngSwitch]="incident.etat">
+                        <h5 id="incidEtatEnCours" *ngSwitchCase="1" > &reg; En cours </h5>
+                        <h5 id="incidEtatResolu" *ngSwitchCase="2" > &reg; Résolu </h5>
+                        <h5 id="incidEtatNonTraité" *ngSwitchDefault > &reg; Non Traité </h5>
+                    </div>
+                    
+                </div>
+                </div>
+    
+        </div>
+
+    </div>
+</div>
