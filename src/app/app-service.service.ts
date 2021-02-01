@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 const optionRequete = {
   headers: new HttpHeaders({ 
@@ -9,19 +9,20 @@ const optionRequete = {
     'Access-Control-Allow-Headers':'X-PINGOTHER, Content-Type'
   })
 };
-
-
 @Injectable({
   providedIn: 'root'
 })
-export class EventService {
+export class AppServiceService {
 
-  constructor(private http:HttpClient) { 
-    
-  }
+  constructor(private http:HttpClient) { }
 
-  public getEvents(){
-    return this.http.get("/api/evenements/", optionRequete);
+  public getEtudiant(id:string){
+     return this.http.get("/api/etudiants/"+id, optionRequete);
+  
+   }
+
+   public setEtudiant(mdp: string){
+    return this.http.get("/api/etudiants/",optionRequete);
  
   }
 }
