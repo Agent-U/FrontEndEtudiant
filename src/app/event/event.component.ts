@@ -9,12 +9,17 @@ import { EventService } from '../event.service';
 })
 export class EventComponent implements OnInit {
   events: any;
+  image_url:any;
   constructor(private service:EventService) { }
 
   ngOnInit(): void {
     let resp = this.service.getEvents();
     resp.subscribe((data)=>this.events=data);
    
+  }
+
+  public eventClicked(url:any){
+    this.image_url = url;
   }
 
   
