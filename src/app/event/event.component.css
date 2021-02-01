@@ -1,0 +1,48 @@
+.event_page{
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.tool{
+    background-color: white;
+    width: 97%;
+    height: 600px;
+    border-style: solid;
+    border-color: grey;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 10px;
+ 
+
+}
+
+#liste_event{
+    overflow-y:scroll;
+    width: 97%;
+    height: 600px;
+}
+
+#row_event{
+    margin-right: 0px;
+}
+.one_event{
+    background-color:  #EEEEEE;
+    width: 93%;
+    height: 100px;
+    margin-left: 35px;
+
+    margin-bottom: 20px;
+    border-style: solid;
+    border-color: grey;
+    border-radius: 5px;
+    padding-left: 10px;
+
+    
+}
+
+#image_event{
+    width: 95%;
+    height: 580px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
