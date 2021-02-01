@@ -5,7 +5,7 @@
     <div class="toolbar" role="banner">
       <div class="image_logo">
         <img id="logo" src="assets/logoAgentU.png" width="60" height="60" alt="">
-        <h3 id="user_name" type="button" data-toggle="modal" data-target="#exampleModal">CHUCK NOURIS</h3>
+        <h3 id="user_name" type="button" data-toggle="modal" data-target="#exampleModal">{{etudiant.nom}} {{etudiant.prenom}} </h3>
       </div>
     
     
@@ -26,7 +26,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header" id="exampleModelHeader">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLabel">{{etudiant.nom}} {{etudiant.prenom}} </h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -36,37 +36,37 @@
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-2 col-form-label">INE</label>
                         <div class="col-sm-10">
-                          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="1456875632">
+                          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{etudiant.ine}}">
                         </div>
                       </div>
                       <div class="form-group row">
                       <label for="staticEmail" class="col-sm-2 col-form-label">Nom</label>
                       <div class="col-sm-10">
-                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="NOURIS">
+                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{etudiant.nom}}">
                       </div>
                     </div>
                     <div class="form-group row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">Prénom</label>
                     <div class="col-sm-10">
-                      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="Check">
+                      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{etudiant.prenom}}">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">Logement</label>
                     <div class="col-sm-10">
-                      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="X145">
+                      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{etudiant.chambre}}">
                     </div>
                   </div>
                     <div class="form-group row">
                       <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
                       <div class="col-sm-10">
-                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+                        <input type="text"  class="form-control" id="staticEmail" value="{{etudiant.mail}}">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
                       <div class="col-sm-10">
-                        <input type="password" class="form-control" id="inputPassword" value="email@example.com">
+                        <input type="password" class="form-control" id="inputPassword" value="{{etudiant.motDePasse}}">
                       </div>
                     </div>
                     
