@@ -21,17 +21,10 @@ export class IncidentsService {
   constructor(private http:HttpClient) { }
 
   public getIncidents(){
-    return this.http.get("https://agentu.herokuapp.com/incidents/");
+    return this.http.get("/api/incidents/",optionRequete);
  
   }
 
-  public getEtudiantWithId(id:number){
-    return this.http.get("https://agentu.herokuapp.com/etudiants/"+id);
-  }
-
-  public addIncident(incidents:Incident){
-    return this.http.post("https://agentu.herokuapp.com/incidents/",incidents,optionRequete);
-  }  
 
 
 }
