@@ -20,8 +20,7 @@ export class IncidentsComponent implements OnInit {
   ngOnInit(): void {
     let resp = this.service.getIncidents();
     resp.subscribe((data)=>this.incidents=data);
-    let respEtu = this.service.getEtudiantWithId(1);
-    respEtu.subscribe((data)=>this.etudiant=data);
+    
    
   }
   
@@ -31,10 +30,13 @@ export class IncidentsComponent implements OnInit {
     
 
     this.incident1.images = this.localUrl;
-    this.incident1.etudiant = this.etudiant;
+    let respEtu = this.service.getEtudiantWithId(1);
+    respEtu.subscribe((data)=>this.etudiant=data);
+    this.incident1.etudiant = this.etudiant ;
     let resp = this.service.addIncident(this.incident1);
     resp.subscribe((data)=>this.messageAdd=data);
   }
+
 
   
   
