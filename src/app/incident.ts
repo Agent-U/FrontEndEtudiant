@@ -4,8 +4,9 @@ export class Incident{
         public date:string, 
         public motif:string,
         public images:any,
-        public etats:number,
+        public etat:number,
         public lieu:string,
+        public description : string,
         public etudiant:any
     ){}
 }

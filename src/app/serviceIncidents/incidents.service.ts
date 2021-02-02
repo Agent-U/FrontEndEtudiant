@@ -25,7 +25,7 @@ export class IncidentsService {
  
   }
 
-  public getEtudiantWithId(id:number){
+  public getEtudiantWithId(id:string){
     return this.http.get("/api/etudiants/"+id,optionRequete);
   }
 
@@ -33,5 +33,9 @@ export class IncidentsService {
     return this.http.post("/api/incidents/",incidents,optionRequete);
   }  
 
+  
 
+  public deleteIncident(id:number){
+    return this.http.delete("/api/incidents/delete/"+id,optionRequete);
+  }  
 }
