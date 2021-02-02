@@ -1,82 +1,70 @@
 
+
+
 <div class="row">
     <div class = "col-6" >
 
-        <h1> {{messageAdd}}</h1>
+        
         <div class="toolbar tool" id="incident_card" role="banner">
             <div class="container">
-                <div class="row">
+                <div class="col-12">
                           
-                    
-                    
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <form>
-                                    <fieldset id="form-field">
-                    
-                                        <div class="form-group">
-
-                                            <label for="id"><span class="req">* </span> id: </label>
-                                            <input required type="text" [(ngModel)]="incident1.id" name="id" id="txt"
-                                                class="form-control phone" maxlength="28" placeholder="id..." />
-                                        </div>
-                    
-                                        <div class="form-group">
-                                            <label for="date"><span class="req">* </span> Date: </label>
-                                            <input class="form-control" type="text" [(ngModel)]="incident1.date" name="date" id="txt" required
-                                                placeholder="date" />
-                                            <div id="errFirst"></div>
-                                        </div>
-                    
-                                        <div class="form-group">
-                                            <label for="motif"><span class="req">* </span> Motif: </label>
-                                            <input class="form-control" type="text" [(ngModel)]="incident1.motif" name="motif" id="txt"
-                                                placeholder="motif" required />
-                                            <div id="errLast"></div>
-                                        </div>
-                    
-                                        <div class="form-group">
-                                            <label for="lieu"><span class="req">* </span> Lieu: </label>
-                                            <input class="form-control" required type="text" [(ngModel)]="incident1.lieu" name="lieu"
-                                                id="email" placeholder="lieu" />
-                                            <div class="status" id="status"></div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="image"><span class="req">* </span> Image: </label> <br>
-                                            <input type="file" accept="image/*" (change)="showPreviewImage($event)">
-                                            <img style="height: 50px; width: 50px;" [src]="localUrl" *ngIf="localUrl" class="imgPlaceholder">
-                                            <div class="status" id="status"></div>
-                                        </div>
-
-                        
-                                        <div class="form-group">
-                                            <input class="btn btn-success" type="submit" name="submit_reg" value="Register" (click)="ajouterIncident()">
-                                        </div>
-                                    </fieldset>
-                                </form>
-                            </div> 
-                    
+                    <form >
+                        <div class="form-group">
+                          <label> Id: </label>
+                          <input type="text" [(ngModel)]="incident1.id" class="form-control"  name="id" id="incidentId" placeholder="ID">
                         </div>
-                    </div>
 
+                        <div class="form-group">
+                            <label > Date: </label>
+                            <input type="date" [(ngModel)]="incident1.date" class="form-control" name="date" id="incidentDate" placeholder="DD/MM/YY">
+                          </div>
 
+                          <div class="form-group">
+                            <label > Motif: </label>
+                            <input type="text" [(ngModel)]="incident1.motif" class="form-control" name="motif" id="incidentMotif" placeholder="Motif"> 
+                          </div>
 
+                          <div class="form-group">
+                            <label > Description: </label>
+                            <textarea type="text" [(ngModel)]="incident1.description" class="form-control" name="motif" id="incidentDescription" placeholder="Description"> </textarea>
+                          </div>
+
+                          <div class="form-group">
+                            <label > Lieu: </label>
+                            <input type="text" [(ngModel)]="incident1.lieu" class="form-control" name="lieu" id="incidentLieu" placeholder="Lieu">
+                          </div>
+
+                          <div class="form-group">
+                            <label > Image: </label>
+                            <input type="file"  class="form-control-file" id="incidentImage"     accept="image/*" (change)="showPreviewImage($event)">
+                          </div>
+                          
+                          <div class="form-group">
+                             <img style="height: 50px; width: 50px;" [src]="localUrl" *ngIf="localUrl" class="imgPlaceholder">
+                          </div>
+                         
+                      
+                        <button type="submit" class="btn btn-success" type="submit" name="submit_reg" value="Register" (click)="ajouterIncident()">Submit</button>
+                      </form>
 
 
                 </div>
                 </div>
+                
         </div>
     </div>
+
+    
     <div class="col-6">
         <div class="toolbar tool" id="incident_card" role="banner">
              <h1 id="incidTitGene" >Incidents signalés</h1>
             <div class="row" *ngFor="let incident of incidents">
-                <div class="one_incident" >
+                <div *ngIf="incident.etudiant.ine == 1" type="button" data-toggle="modal" data-target="#incidentModal" (click)="affichemodal(incident)" class="one_incident" >
                     <h1 id="incidTitre" >{{incident.motif}}</h1>
 
                     <div id="incidDate" >  <b>Signalé le : {{incident.date}} </b> </div>
+                   
                     <div class="incidEtat" [ngSwitch]="incident.etat">
                         <h5 id="incidEtatEnCours" *ngSwitchCase="1" > &reg; En cours </h5>
                         <h5 id="incidEtatResolu" *ngSwitchCase="2" > &reg; Résolu </h5>
@@ -89,4 +77,65 @@
         </div>
 
     </div>
+
+
+     
+
 </div>
+
+ <!--Model -->
+ <div class="modal fade" id="incidentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" id="exampleModelHeader">
+        <h2 class="modal-title" id="exampleModalLabel">{{incidentModel.motif}}</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form>
+             
+                <div class="form-group row">
+                  <label for="staticEmail" class="col-sm-4 col-form-label">Lieu : </label>
+                  <div class="col-sm-8">
+                    <h5 class="form-control-plaintext" id="staticEmail" > {{incidentModel.etudiant.chambre}} </h5>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="staticEmail" class="col-sm-4 col-form-label">Signalé le : </label>
+                  <div class="col-sm-8">
+                    <h5 class="form-control-plaintext" id="staticEmail" > {{incidentModel.date}} </h5>
+                  </div>
+                </div>
+
+                <div class="incidEtat" [ngSwitch]="incidentModel.etat">
+                  <h5 style="margin-right: 20%;" id="incidEtatEnCours" *ngSwitchCase="1" > &reg; En cours </h5>
+                  <h5 style="margin-right: 20%;" id="incidEtatResolu" *ngSwitchCase="2" > &reg; Résolu </h5>
+                  <h5 style="margin-right: 20%;" id="incidEtatNonTraité" *ngSwitchDefault > &reg; Non Traité </h5>
+              </div>
+
+                <div class="form-group">
+                  <img style="margin-left: 10px; height: 260px; width: 500px;" src="../../assets/crous.jpg"  >
+               </div>
+              
+
+                <div class="form-group row">
+                  <label for="staticEmail" class="col-sm-4 col-form-label">Motif</label>
+                  <div class="col-sm-8">
+                    <h5 class="form-control-plaintext" id="staticEmail" > {{incidentModel.motif}} </h5>
+                  </div>
+                </div>
+
+              
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="supprimerIncident(incidentModel.id)" >Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- -->

@@ -9,7 +9,8 @@ import {Incident} from '../incident';
 })
 export class IncidentsComponent implements OnInit {
 
-  incident1 : Incident = new Incident(0,"","test Incident","",0,"","");
+  incident1 : Incident = new Incident(0,"","test Incident","",0,"","","");
+  incidentModel : Incident = new Incident(0,"","test Incident","",0,"","","");;
   incidents : any;
   messageAdd:any;
   localUrl: any;
@@ -20,22 +21,46 @@ export class IncidentsComponent implements OnInit {
   ngOnInit(): void {
     let resp = this.service.getIncidents();
     resp.subscribe((data)=>this.incidents=data);
-    let respEtu = this.service.getEtudiantWithId(1);
+    
+    let respEtu = this.service.getEtudiantWithId("1");
     respEtu.subscribe((data)=>this.etudiant=data);
    
   }
   
   public ajouterIncident(){
     
-    console.log(this.incident1);
+    
     
 
     this.incident1.images = this.localUrl;
-    this.incident1.etudiant = this.etudiant;
-    let resp = this.service.addIncident(this.incident1);
-    resp.subscribe((data)=>this.messageAdd=data);
+    
+    //alert(this.incident1.motif);
+    this.incident1.etudiant = this.etudiant ;
+    this.incident1.etudiant.incidents = null;
+    this.incident1.etudiant.rendezVous = null;
+    
+    this.service.addIncident(this.incident1)
+    .subscribe((inc) => {
+      this.incidents = [inc, ...this.incidents];
+  })
+  this.resteIncident();
+  
+    //resp.subscribe((data)=>this.messageAdd=data);
+   // alert(this.messageAdd);
+  }
+  
+  resteIncident(){
+    this.incident1 = new Incident(0,"","","",0,"","","");
   }
 
+  public supprimerIncident(id:number){
+
+    this.service.deleteIncident(id)
+    .subscribe(() => {
+      this.incidents = this.incidents.filter((incident: { id: number; })=> incident.id != id)
+    });
+   // resp.subscribe((data)=>this.messageAdd=data);
+  }
   
   
   showPreviewImage(event: any) {
@@ -46,6 +71,10 @@ export class IncidentsComponent implements OnInit {
           }
           reader.readAsDataURL(event.target.files[0]);
       }
+  }
+
+  public affichemodal(incident : Incident){
+    this.incidentModel = incident;
   }
 
 }
