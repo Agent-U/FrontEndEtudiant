@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 const optionRequete = {
   headers: new HttpHeaders({ 
     'Access-Control-Allow-Origin':'*',
-    'Access-Control-Allow-Methods':'POST, GET',
+    'Access-Control-Allow-Methods':'POST, GET, PUT',
     'Access-Control-Allow-Headers':'X-PINGOTHER, Content-Type'
   })
 };

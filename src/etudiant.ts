@@ -1,4 +1,4 @@
-export class Event{
+export class Etudiant{
     constructor(
        ine:any, 
        nom:string, 
@@ -9,7 +9,6 @@ export class Event{
        grandeEnveloppe:number,
        avisPassage:number,
        colis:number,
-       url_image:string,
-       detail:string
+
     ){}
 }
