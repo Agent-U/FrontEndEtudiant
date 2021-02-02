@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { AppServiceService } from './app-service.service';
 
 @Component({
@@ -10,7 +9,7 @@ import { AppServiceService } from './app-service.service';
 export class AppComponent implements OnInit{
   title = 'FrontEndEtudiant';
 
-etudiant: any;
+  etudiant: any;
  constructor(private service:AppServiceService) { }
 
  ngOnInit(): void {
@@ -19,13 +18,17 @@ etudiant: any;
  
 }
 
-public setEtudiant(){
-  this.etudiant.mail = "blabla@gmail.com";
-  this.etudiant.motDePasse = "bonjour"; 
-  let resp = this.service.setEtudiant(this.etudiant);
-  resp.subscribe((data)=>this.etudiant=data);
 
- 
+
+public setEtudiant(){
+  
+  //this.etudiant.mail = 
+  //this.etudiant.motDePasse = myPass; 
+  this.etudiant.incidents = null;
+  this.etudiant.rendezVous = null;
+  alert(this.etudiant.mail);
+  let resp = this.service.setEtudiant(this.etudiant);
+  resp.subscribe((data)=>this.etudiant=data); 
 }
 
 
