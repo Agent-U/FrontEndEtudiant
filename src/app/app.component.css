@@ -1,3 +1,5 @@
+
+
 .toolbar{
     position:relative;
     top: 0;
@@ -16,6 +18,7 @@
 
 }
 
+
 #user_name{
   float: right;
   margin-right: 1%;
@@ -28,8 +31,9 @@
   margin-right: 50%;
 }
 .bar_nav{
+    border-top: 5px solid #E0222C;
     position:relative;
-    margin-top: 20px;
+
     margin-bottom: 50px;
     font-weight: 600;
     left: 0;

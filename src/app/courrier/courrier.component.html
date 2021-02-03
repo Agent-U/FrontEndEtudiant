@@ -1,0 +1,83 @@
+
+<div class="toolbar tool" id="liste_event" role="banner">
+    <div class="row"  id="row_event">
+        <div class="table_courrier" >
+            <div class="row">
+                    <div class="col detail_courrier_main">
+                        <h3>Type de Courrier</h3>
+                    </div> 
+                    <span class="vertical-line-main"></span>
+                    <div class="col detail_courrier_main">
+                        <h3>Nombre</h3>
+                    </div> 
+                    <span class="vertical-line-main"></span>
+                    <div class="col detail_courrier_main">
+                        <h3>Date</h3>
+                    </div> 
+            </div>   
+        </div>
+            <div class="one_event" >
+                <div class="row">
+                    <div class="col detail_courrier">
+                        <h3>Petite Enveloppe</h3>
+                    </div> 
+                    <span class="vertical-line"></span>
+                    <div class="col detail_courrier">
+                        <h3>{{courriers.petiteEnveloppe}}</h3>
+                    </div> 
+                    <span class="vertical-line"></span>
+                    <div class="col detail_courrier">
+                        <h3>{{datePC.getDay()}}/{{datePC.getMonth()}}/{{datePC.getFullYear()}}</h3>
+                    </div> 
+                </div>   
+            </div>
+            <div class="one_event" >
+                <div class="row">
+                    <div class="col detail_courrier">
+                        <h3>Grande Enveloppe</h3>
+                    </div> 
+                    <span class="vertical-line"></span>
+                    <div class="col detail_courrier">
+                        <h3>{{courriers.grandeEnveloppe}}</h3>
+                    </div> 
+                    <span class="vertical-line"></span>
+                    <div class="col detail_courrier">
+                        <h3>{{dateGC.getDay()}}/{{dateGC.getMonth()}}/{{dateGC.getFullYear()}}</h3>
+                    </div> 
+                </div>   
+            </div>
+            <div class="one_event" >
+                <div class="row">
+                    <div class="col detail_courrier">
+                        <h3>Avis De Passage</h3>
+                    </div> 
+                    <span class="vertical-line"></span>
+                    <div class="col detail_courrier">
+                        <h3>{{courriers.avisPassage}}</h3>
+                    </div> 
+                    <span class="vertical-line"></span>
+                    <div class="col detail_courrier">
+                        <h3>{{dateAP.getDay()}}/{{dateAP.getMonth()}}/{{dateAP.getFullYear()}}</h3>
+                    </div> 
+                </div>   
+            </div>
+            <div class="one_event" >
+                <div class="row">
+                    <div class="col detail_courrier">
+                        <h3>Colis</h3>
+                    </div> 
+                    <span class="vertical-line"></span>
+                    <div class="col detail_courrier">
+                        <h3>{{courriers.colis}}</h3>
+                    </div> 
+                    <span class="vertical-line"></span>
+                    <div class="col detail_courrier">
+                        <h3>{{dateC.getDay()}}/{{dateC.getMonth()}}/{{dateC.getFullYear()}}</h3>
+                    </div> 
+                </div>   
+            </div>
+      
+      
+    </div>
+</div>
+
