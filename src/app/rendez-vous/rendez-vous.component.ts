@@ -54,6 +54,7 @@ export class RendezVousComponent implements OnInit {
   }
 
 
+  
   deleteRendezVous(rendezVousDelete : any){
 
     if(confirm("Are you sure to delete ")) {
