@@ -64,6 +64,10 @@ export class RendezVousComponent implements OnInit {
       .subscribe(() => {
         //this.listeRendezVous = this.listeRendezVous.filter((rendezVous: { id: number; })=> rendezVous.id != rendezVousDelete.id)
       });
+      this.selectAgent = "initselect";
+      this.selectCreneau = "initCreanu";
+      this.motif = "";
+      this.selectRendezVous = [];
     }
    
     
@@ -78,7 +82,6 @@ export class RendezVousComponent implements OnInit {
 
 
     if(this.isSelectedRendezVous){
-      //alert(this.motif);
       this.selectedRendezVous.motif = this.motif;
       this.etudiant.ine = "23";
       this.selectedRendezVous.disponible = false;
@@ -94,6 +97,8 @@ export class RendezVousComponent implements OnInit {
 
     this.selectAgent = "initselect";
     this.selectCreneau = "initCreanu";
+    this.motif = "";
+    this.selectRendezVous = [];
     }
     
   }
