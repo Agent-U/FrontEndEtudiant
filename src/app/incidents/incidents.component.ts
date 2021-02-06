@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ViewEncapsulation } from '@angular/core';
 import { IncidentsService } from '../serviceIncidents/incidents.service';
 import {Incident} from '../incident';
 
 @Component({
   selector: 'app-incidents',
   templateUrl: './incidents.component.html',
-  styleUrls: ['./incidents.component.css']
+  styleUrls: ['./incidents.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class IncidentsComponent implements OnInit {
 
@@ -16,7 +19,7 @@ export class IncidentsComponent implements OnInit {
   localUrl: any;
 
   etudiant: any;
-  constructor(private service: IncidentsService) { }
+  constructor(private service: IncidentsService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     let resp = this.service.getIncidents();
@@ -73,8 +76,12 @@ export class IncidentsComponent implements OnInit {
       }
   }
 
-  public affichemodal(incident : Incident){
-    this.incidentModel = incident;
+
+  openXl(content : any, incident : any) {
+    this.modalService.open(content, { size: 'xl',  centered: true });
+
+   this.incidentModel = incident;
+    
   }
 
 }

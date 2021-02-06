@@ -1,13 +1,10 @@
 
 
 
-<div class="row">
-    <div class = "col-6" >
-
-        
-        <div class="toolbar tool" id="incident_card" role="banner">
-            <div class="container">
-                <div class="col-12">
+<div class="card-deck">
+  <div class="card" >  
+                <div class="modal-body">
+           
                           
                     <form >
                         <div class="form-group">
@@ -45,68 +42,88 @@
                           </div>
                          
                       
-                        <button type="submit" class="btn btn-success" type="submit" name="submit_reg" value="Register" (click)="ajouterIncident()">Submit</button>
-                      </form>
-
-
+                        <button type="submit" id="button" class="btn btn-success" type="submit" name="submit_reg" value="Register" (click)="ajouterIncident()">Ajouter</button>
+                      </form>       
                 </div>
-                </div>
-                
-        </div>
-    </div>
+  </div>
 
     
-    <div class="col-6">
-        <div class="toolbar tool" id="incident_card" role="banner">
-             <h1 id="incidTitGene" >Incidents signalés</h1>
-            <div class="row" *ngFor="let incident of incidents">
-                <div *ngIf="incident.etudiant.ine == 1" type="button" data-toggle="modal" data-target="#incidentModal" (click)="affichemodal(incident)" class="one_incident" >
-                    <h1 id="incidTitre" >{{incident.motif}}</h1>
+    <div class="card" >
 
-                    <div id="incidDate" >  <b>Signalé le : {{incident.date}} </b> </div>
-                   
-                    <div class="incidEtat" [ngSwitch]="incident.etat">
-                        <h5 id="incidEtatEnCours" *ngSwitchCase="1" > &reg; En cours </h5>
-                        <h5 id="incidEtatResolu" *ngSwitchCase="2" > &reg; Résolu </h5>
-                        <h5 id="incidEtatNonTraité" *ngSwitchDefault > &reg; Non Traité </h5>
-                    </div>
-                    
-                </div>
-                </div>
+              <table id="example" class="table table-striped table-hover table-fixed">
+                <thead class="thead-dark">
     
-        </div>
-
+                    <tr>
+                        <th style="width:70%;" class="text-center" id="RDVl" scope="col" [appSort]="incidents" data-order="desc" data-name="id">Incident</th>
+                        <th style="width:30%;" class="text-center" id="RDVl" scope="col" [appSort]="incidents" data-order="desc" data-name="disponible"> Etat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let incident of incidents" data-toggle="modal" data-target="#incidentModal" (click)="openXl(content, incident)">
+                        <td style="width:70%;" >
+                            <div>
+                                <h2  class="mb-4 text-left">{{incident.motif}}</h2>
+    
+    
+                            </div>
+                            <div >
+                                <h5 class="mb-4 text-left"> Motif : {{incident.motif}}</h5>
+    
+    
+                            </div>
+                            <div >
+                                <h5 class="mb-4 text-left">Le {{incident.date.substring(8, 10)}}/{{incident.date.substring(5, 7)}}/{{incident.date.substring(0, 4)}} à {{incident.date.substring(11, 16)}}</h5>
+    
+    
+                            </div>
+                        </td>
+                        <td  style="width:30%;" >
+                            <div  [ngSwitch]="incident.etat">
+                                <br><br>
+                              
+                                  <h5 id="incidEtatEnCours" *ngSwitchCase="1" >En cours </h5>
+                                  <h5 id="incidEtatResolu" *ngSwitchCase="2" >Résolu </h5>
+                                  <h5 id="incidEtatNonTraité" *ngSwitchDefault >Non Traité </h5>
+                            
+                            </div>
+                        </td>
+                    </tr>
+    
+                </tbody>
+    
+            </table>
+    
     </div>
+
+  </div>
 
 
      
 
-</div>
+
 
  <!--Model -->
- <div class="modal fade" id="incidentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header" id="exampleModelHeader">
-        <h2 class="modal-title" id="exampleModalLabel">{{incidentModel.motif}}</h2>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <form>
-             
-                <div class="form-group row">
+ <ng-template #content let-modal>
+    <div class="modal-header" style="background-color: #EEEEEE;">
+      <h2 class="modal-title" id="exampleModalLabel">{{incidentModel.motif}}</h2>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <div class="modal-body">
+      <div class="row">
+          <div class="col">
+                <div class="form-group">
                   <label for="staticEmail" class="col-sm-4 col-form-label">Lieu : </label>
                   <div class="col-sm-8">
                     <h5 class="form-control-plaintext" id="staticEmail" > {{incidentModel.etudiant.chambre}} </h5>
                   </div>
                 </div>
 
-                <div class="form-group row">
+                <div class="form-group ">
                   <label for="staticEmail" class="col-sm-4 col-form-label">Signalé le : </label>
                   <div class="col-sm-8">
-                    <h5 class="form-control-plaintext" id="staticEmail" > {{incidentModel.date}} </h5>
+                    <h5 class="form-control-plaintext" id="staticEmail" > {{incidentModel.date.substring(8, 10)}}/{{incidentModel.date.substring(5, 7)}}/{{incidentModel.date.substring(0, 4)}} à {{incidentModel.date.substring(11, 16)}} </h5>
                   </div>
                 </div>
 
@@ -114,28 +131,36 @@
                   <h5 style="margin-right: 20%;" id="incidEtatEnCours" *ngSwitchCase="1" > &reg; En cours </h5>
                   <h5 style="margin-right: 20%;" id="incidEtatResolu" *ngSwitchCase="2" > &reg; Résolu </h5>
                   <h5 style="margin-right: 20%;" id="incidEtatNonTraité" *ngSwitchDefault > &reg; Non Traité </h5>
-              </div>
-
-                <div class="form-group">
-                  <img style="margin-left: 10px; height: 260px; width: 500px;" src="../../assets/crous.jpg"  >
-               </div>
-              
-
-                <div class="form-group row">
-                  <label for="staticEmail" class="col-sm-4 col-form-label">Motif</label>
-                  <div class="col-sm-8">
-                    <h5 class="form-control-plaintext" id="staticEmail" > {{incidentModel.motif}} </h5>
-                  </div>
                 </div>
 
-              
-          </form>
+            
+
+                <div class="form-group ">
+                      <label for="staticEmail" class="col-sm-4 col-form-label">Motif</label>
+                      <div class="col-sm-8">
+                        <h5 class="form-control-plaintext" id="staticEmail" > {{incidentModel.motif}} </h5>
+                      </div>
+                </div>   
+          </div>
+            <div class="col">
+              <div class="form-group">
+                <img style="margin-left: 10px; height: 260px; width: 500px;" src="../../assets/crous.jpg"  >
+              </div>
+            </div>
+
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="supprimerIncident(incidentModel.id)" >Supprimer</button>
-      </div>
-    </div>
   </div>
-</div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Fermer</button>
+      <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="supprimerIncident(incidentModel.id)" (click)="modal.close('Close click')">Supprimer</button>
+    </div>
+</ng-template>
+
+
+
+
+
+
+ 
+
 <!-- -->

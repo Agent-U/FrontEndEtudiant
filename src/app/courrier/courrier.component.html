@@ -1,5 +1,6 @@
 
-<div class="toolbar tool" id="liste_event" role="banner">
+<div class="card-deck">
+<div class="card" id="liste_event">
     <div class="row"  id="row_event">
         <div class="table_courrier" >
             <div class="row">
@@ -26,9 +27,14 @@
                         <h3>{{courriers.petiteEnveloppe}}</h3>
                     </div> 
                     <span class="vertical-line"></span>
-                    <div class="col detail_courrier">
-                        <h3>{{datePC.getDay()}}/{{datePC.getMonth()}}/{{datePC.getFullYear()}}</h3>
+                    <div class="col detail_courrier"  *ngIf="courriers.datePetiteEnveloppe == null else loading1">
+                        <h3>_</h3>
                     </div> 
+                        <ng-template #loading1>
+                            <div> <h3>{{courriers.datePetiteEnveloppe.substring(8, 10)}}/{{courriers.datePetiteEnveloppe.substring(5, 7)}}/{{courriers.datePetiteEnveloppe.substring(0, 4)}}</h3></div>
+                           </ng-template>
+                   
+                   
                 </div>   
             </div>
             <div class="one_event" >
@@ -41,9 +47,12 @@
                         <h3>{{courriers.grandeEnveloppe}}</h3>
                     </div> 
                     <span class="vertical-line"></span>
-                    <div class="col detail_courrier">
-                        <h3>{{dateGC.getDay()}}/{{dateGC.getMonth()}}/{{dateGC.getFullYear()}}</h3>
+                    <div class="col detail_courrier"  *ngIf="courriers.dateGrandeEnveloppe == null else loading2">
+                        <h3>_</h3>
                     </div> 
+                        <ng-template #loading2>
+                            <div> <h3>{{courriers.dateGrandeEnveloppe.substring(8, 10)}}/{{courriers.dateGrandeEnveloppe.substring(5, 7)}}/{{courriers.dateGrandeEnveloppe.substring(0, 4)}}</h3></div>
+                           </ng-template>
                 </div>   
             </div>
             <div class="one_event" >
@@ -56,9 +65,12 @@
                         <h3>{{courriers.avisPassage}}</h3>
                     </div> 
                     <span class="vertical-line"></span>
-                    <div class="col detail_courrier">
-                        <h3>{{dateAP.getDay()}}/{{dateAP.getMonth()}}/{{dateAP.getFullYear()}}</h3>
+                    <div class="col detail_courrier"  *ngIf="courriers.dateAvisPassage == null else loading3">
+                        <h3>_</h3>
                     </div> 
+                        <ng-template #loading3>
+                            <div> <h3>{{courriers.dateAvisPassage.substring(8, 10)}}/{{courriers.dateAvisPassage.substring(5, 7)}}/{{courriers.dateAvisPassage.substring(0, 4)}}</h3></div>
+                           </ng-template>
                 </div>   
             </div>
             <div class="one_event" >
@@ -71,13 +83,18 @@
                         <h3>{{courriers.colis}}</h3>
                     </div> 
                     <span class="vertical-line"></span>
-                    <div class="col detail_courrier">
-                        <h3>{{dateC.getDay()}}/{{dateC.getMonth()}}/{{dateC.getFullYear()}}</h3>
+                    <div class="col detail_courrier"  *ngIf="courriers.dateColis == null else loading4">
+                        <h3>_</h3>
                     </div> 
+                        <ng-template #loading4>
+                            <div class="col detail_courrier" > <h3>{{courriers.dateColis.substring(8, 10)}}/{{courriers.dateColis.substring(5, 7)}}/{{courriers.dateColis.substring(0, 4)}}</h3></div>
+                           </ng-template>
                 </div>   
             </div>
       
       
     </div>
+</div>
+
 </div>
 
