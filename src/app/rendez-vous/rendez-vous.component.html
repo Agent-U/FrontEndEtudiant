@@ -1,0 +1,81 @@
+
+
+
+<div class="row">
+    <div class = "col-6" >
+
+        
+        <div class="toolbar tool" id="rendezvous_card" role="banner">
+            <div class="container">
+                <div class="col-12">
+                          
+                    
+                    <form >
+                        <div class="form-group">
+
+                            <div class="dropdown">
+                        <select [(ngModel)]="selectAgent" name ="test" class="dropdown-select" aria-label=".form-select-lg example"> 
+                            <option value='initselect' id="choix" (click)="afficheDisponibilite(-1)" selected> Choisir un agent </option>
+                            <option  id="{{agent.id}}" (click)="afficheDisponibilite(agent.id)" *ngFor="let agent of listeAgent" > {{agent.nom}} {{agent.prenom}}</option>
+                            
+                          </select>
+                        </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            
+                            <div class="dropdown">
+                        <select [(ngModel)]="selectCreneau" name="creneau" class="dropdown-select" aria-label=".form-select-lg example">
+                            <option value="initCreanu" selected> Choisir un créneau </option>
+                            <option   (click)="changeRendezVous(rendezVous)"   *ngFor="let rendezVous of selectRendezVous" > {{rendezVous.date}}</option>
+                            
+                          </select>
+                        </div>
+                        </div> 
+                        
+                        <button type="submit" class="btn btn-success" type="submit" name="submit_reg" value="Register" (click)="ajouterRendezVous()">Submit</button>
+
+                       <!-- <div class="form-group">
+                          <label> Id: </label>
+                          <input type="text" [(ngModel)]="incident1.id" class="form-control"  name="id" id="incidentId" placeholder="ID">
+                        </div> 
+
+                        
+                      
+                        
+                    -->  </form>
+
+
+                </div>
+                </div>
+                
+        </div>
+    </div>
+
+    
+    <div class="col-6">
+        <div class="toolbar tool" id="rendezvous_card_choix" role="banner">
+             <h1 id="rendezvousTitGene" >Rendez Vous :</h1>
+            <div class="row" *ngFor="let rendezVousElem of listeRendezVous">
+                <div *ngIf="(rendezVousElem.etudiant != null) && (rendezVousElem.etudiant.ine == idEtudiantsActuel)" class="one_rendezvous" >
+                    <h1 id="rendezvousTitre" > Rendez-vous avec {{rendezVousElem.agent.nom}} {{rendezVousElem.agent.prenom}}</h1>
+
+                    <div id="rendezvousDate" >  <b> Le :{{rendezVousElem.date.substring(8, 10)}}/{{rendezVousElem.date.substring(5, 7)}}/{{rendezVousElem.date.substring(0, 4)}} à {{rendezVousElem.date.substring(11, 16)}}</b> 
+                        <img id="delete_icon" src="/assets/delete.png" (click)="deleteRendezVous(rendezVousElem)">
+                    </div>
+
+                    
+                  
+                    
+                </div>
+                </div>
+    
+        </div>
+
+    </div>
+
+
+     
+
+</div>

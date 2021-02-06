@@ -1,17 +1,21 @@
 export class Etudiant{
+    public ine : any;
     constructor(
-       public ine:any, 
-       public nom:string, 
-       public prenom:string, 
-       public mail:string,
-       public motDePasse:string,
-       public petiteEnveloppe:number,
-       public grandeEnveloppe:number,
-       public avisPassage:number,
-       public colis:number,
-       public chambre:string,
-       public incidents : any,
-       public rendezVous : any
+       ine:any, 
+       nom:string = "", 
+       prenom:string = "", 
+       mail:string = "",
+       motDePasse:string = "",
+       petiteEnveloppe:number = 0,
+       grandeEnveloppe:number = 0,
+       avisPassage:number = 0,
+       colis:number = 0,
+       datepetiteEnveloppe:any = "",
+       dategrandeEnveloppe:any = "",
+       dateavisPassage:any = "",
+       datecolis:any = "",
+       rendezVous : any = "",
+       incidents : any = "",
 
     ){}
 }

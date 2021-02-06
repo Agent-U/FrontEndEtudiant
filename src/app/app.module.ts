@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -15,6 +15,7 @@ import { EventService } from './event.service';
 import { IncidentsComponent } from './incidents/incidents.component';
 
 import { IncidentsService } from './serviceIncidents/incidents.service';
+import { RendezVousComponent } from './rendez-vous/rendez-vous.component';
 import { CourrierComponent } from './courrier/courrier.component';
 import {CourrierService} from './serviceCourrier/courrier.service';
 
@@ -26,6 +27,7 @@ import {CourrierService} from './serviceCourrier/courrier.service';
     EventComponent,
     HomeComponent,
     IncidentsComponent,
+    RendezVousComponent,
     CourrierComponent
 
   ],
@@ -33,7 +35,8 @@ import {CourrierService} from './serviceCourrier/courrier.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
 
   providers: [EventService,
