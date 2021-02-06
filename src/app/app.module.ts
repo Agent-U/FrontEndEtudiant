@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EventComponent } from './event/event.component';
+
 import { HomeComponent } from './home/home.component';
 import { AppServiceService } from './app-service.service';
 
@@ -15,6 +16,8 @@ import { IncidentsComponent } from './incidents/incidents.component';
 
 import { IncidentsService } from './serviceIncidents/incidents.service';
 import { RendezVousComponent } from './rendez-vous/rendez-vous.component';
+import { CourrierComponent } from './courrier/courrier.component';
+import {CourrierService} from './serviceCourrier/courrier.service';
 
 
 @NgModule({
@@ -24,7 +27,8 @@ import { RendezVousComponent } from './rendez-vous/rendez-vous.component';
     EventComponent,
     HomeComponent,
     IncidentsComponent,
-    RendezVousComponent
+    RendezVousComponent,
+    CourrierComponent
 
   ],
   imports: [
@@ -37,7 +41,9 @@ import { RendezVousComponent } from './rendez-vous/rendez-vous.component';
 
   providers: [EventService,
               IncidentsService,
-              AppServiceService],
+              AppServiceService,
+              CourrierService
+            ],
 
   bootstrap: [AppComponent]
 })
