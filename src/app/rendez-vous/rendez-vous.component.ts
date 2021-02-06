@@ -19,6 +19,7 @@ export class RendezVousComponent implements OnInit {
   selectRendezVous : RendezVous[] = [];
   selectedRendezVous : any;
   isSelectedRendezVous = false;
+  motif : any = "";
 
   selectAgent : any = "initselect";
   selectCreneau : any = "initCreanu"; 
@@ -37,6 +38,7 @@ export class RendezVousComponent implements OnInit {
     respAgent.subscribe((data)=>this.listeAgent=data);
 
     
+    
   }
 
   afficheDisponibilite(agentId : any){
@@ -47,27 +49,36 @@ export class RendezVousComponent implements OnInit {
       
     }
 
+    alert(this.listeRendezVous[2].etudiant.ine);
+
   }
 
 
   deleteRendezVous(rendezVousDelete : any){
-    rendezVousDelete.etudiant = null;
-    rendezVousDelete.disponible = true;
-    this.service.editRendezVous(rendezVousDelete)
-    .subscribe(() => {
-      //this.listeRendezVous = this.listeRendezVous.filter((rendezVous: { id: number; })=> rendezVous.id != rendezVousDelete.id)
-    });
+
+    if(confirm("Are you sure to delete ")) {
+      rendezVousDelete.etudiant = null;
+      rendezVousDelete.disponible = true;
+      this.service.editRendezVous(rendezVousDelete)
+      .subscribe(() => {
+        //this.listeRendezVous = this.listeRendezVous.filter((rendezVous: { id: number; })=> rendezVous.id != rendezVousDelete.id)
+      });
+    }
+   
     
   }
 
   changeRendezVous(rendezVous : any){
-    this.selectedRendezVous = rendezVous;
+    this.selectedRendezVous = rendezVous;    
     this.isSelectedRendezVous = true;
   }
 
   ajouterRendezVous(){
 
+
     if(this.isSelectedRendezVous){
+      //alert(this.motif);
+      this.selectedRendezVous.motif = this.motif;
       this.etudiant.ine = "23";
       this.selectedRendezVous.disponible = false;
  
