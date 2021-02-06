@@ -49,9 +49,10 @@ export class RendezVousComponent implements OnInit {
       
     }
 
-    alert(this.listeRendezVous[2].etudiant.ine);
+    
 
   }
+
 
   
   deleteRendezVous(rendezVousDelete : any){
@@ -95,7 +96,6 @@ export class RendezVousComponent implements OnInit {
     this.selectCreneau = "initCreanu";
     }
     
-  
   }
 
 }
