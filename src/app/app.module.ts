@@ -19,6 +19,9 @@ import { RendezVousComponent } from './rendez-vous/rendez-vous.component';
 import { CourrierComponent } from './courrier/courrier.component';
 import {CourrierService} from './serviceCourrier/courrier.service';
 
+import { SortDirective } from './directive/sort.directive';
+import { RendezVousService } from './serviceRendezVous/rendez-vous.service';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import {CourrierService} from './serviceCourrier/courrier.service';
     HomeComponent,
     IncidentsComponent,
     RendezVousComponent,
-    CourrierComponent
+    CourrierComponent,
+    SortDirective,
 
   ],
   imports: [

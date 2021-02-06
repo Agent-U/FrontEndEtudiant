@@ -10,7 +10,7 @@ import { AppServiceService } from './app-service.service';
 export class AppComponent implements OnInit{
   title = 'FrontEndEtudiant';
 
-  etudiant: any = new Etudiant("","","","","",0,0,0,0,"",null,null);
+  etudiant: any = new Etudiant("23");
  constructor(private service:AppServiceService) { 
    
  }
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit{
 }
 
 public getEtudiant(){
-  let resp = this.service.getEtudiant("15265");
+  let resp = this.service.getEtudiant("23");
   resp.subscribe((data)=>this.etudiant=data);
 }
 
@@ -32,7 +32,6 @@ public setEtudiant(){
 
   this.etudiant.incidents = null;
   this.etudiant.rendezVous = null;
-  alert(this.etudiant.mail);
   let resp = this.service.setEtudiant(this.etudiant);
   resp.subscribe((data)=>this.etudiant=data); 
 }
