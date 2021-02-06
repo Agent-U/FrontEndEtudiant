@@ -53,7 +53,6 @@ export class RendezVousComponent implements OnInit {
 
   }
 
-
   
   deleteRendezVous(rendezVousDelete : any){
 
