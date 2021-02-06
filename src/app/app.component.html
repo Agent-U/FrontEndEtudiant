@@ -5,12 +5,11 @@
     <div class="toolbar" role="banner">
       <div class="image_logo">
         <img id="logo" src="assets/logoAgentU.png" width="60" height="60" alt="">
-        <h3 id="user_name" type="button" data-toggle="modal" data-target="#exampleModal">{{etudiant.nom}} {{etudiant.prenom}} </h3>
+        <h3 id="user_name" type="button" data-toggle="modal" data-target="#exampleModal">{{etudiant?.nom}} {{etudiant?.prenom}}</h3>
+        
       </div>
-    
-    
     </div>
-    
+    <span class="horizontal-line"></span>
     <div class="bar_nav">
       <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" href="#">
@@ -26,7 +25,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header" id="exampleModelHeader">
-              <h5 class="modal-title" id="exampleModalLabel">{{etudiant.nom}} {{etudiant.prenom}} </h5>
+              <h5 class="modal-title" id="exampleModalLabel">{{etudiant?.nom}} {{etudiant?.prenom}}</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
