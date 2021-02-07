@@ -30,10 +30,14 @@ export class IncidentsService {
   }
 
   public addIncident(incidents:Incident){
+
     return this.http.post("/api/incidents/",incidents,optionRequete);
   }  
 
-  
+  public upPic(file:any){
+    return this.http.post<any>("/api/incidents/upImg/",file,optionRequete);
+  } 
+
 
   public deleteIncident(id:number){
     return this.http.delete("/api/incidents/delete/"+id,optionRequete);

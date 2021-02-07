@@ -3,6 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ViewEncapsulation } from '@angular/core';
 import { IncidentsService } from '../serviceIncidents/incidents.service';
 import {Incident} from '../incident';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-incidents',
@@ -17,39 +18,43 @@ export class IncidentsComponent implements OnInit {
   incidents : any;
   messageAdd:any;
   localUrl: any;
-
+  uploadForm: any ; 
   etudiant: any;
-  constructor(private service: IncidentsService, private modalService: NgbModal) { }
+  constructor(private service: IncidentsService, private modalService: NgbModal, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     let resp = this.service.getIncidents();
     resp.subscribe((data)=>this.incidents=data);
     
-    let respEtu = this.service.getEtudiantWithId("1");
+    let respEtu = this.service.getEtudiantWithId("23");
     respEtu.subscribe((data)=>this.etudiant=data);
+
+    this.uploadForm = this.formBuilder.group({
+      profile: ['']
+    });
    
   }
   
   public ajouterIncident(){
     
     
+   const formData = new FormData();
+   formData.append('file', this.uploadForm.get('profile').value);
     
+   this.incident1.etudiant = this.etudiant ;
+   this.incident1.etudiant.incidents = null;
+   this.incident1.etudiant.rendezVous = null;
+   this.incident1.imageUrl =  this.uploadForm.get('profile').value.name;
+   
+   this.service.addIncident(this.incident1)
+   .subscribe((inc) => {
+     this.incidents = [inc, ...this.incidents];
+ });
+   this.service.upPic(formData).subscribe()
 
-    this.incident1.images = this.localUrl;
-    
-    //alert(this.incident1.motif);
-    this.incident1.etudiant = this.etudiant ;
-    this.incident1.etudiant.incidents = null;
-    this.incident1.etudiant.rendezVous = null;
-    
-    this.service.addIncident(this.incident1)
-    .subscribe((inc) => {
-      this.incidents = [inc, ...this.incidents];
-  })
+
   this.resteIncident();
-  
-    //resp.subscribe((data)=>this.messageAdd=data);
-   // alert(this.messageAdd);
+
   }
   
   resteIncident(){
@@ -67,13 +72,10 @@ export class IncidentsComponent implements OnInit {
   
   
   showPreviewImage(event: any) {
-      if (event.target.files && event.target.files[0]) {
-          var reader = new FileReader();
-          reader.onload = (event: any) => {
-              this.localUrl = event.target.result;
-          }
-          reader.readAsDataURL(event.target.files[0]);
-      }
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.uploadForm.get('profile').setValue(file);
+    }
   }
 
 
