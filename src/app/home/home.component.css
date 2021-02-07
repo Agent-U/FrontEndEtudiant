@@ -3,9 +3,11 @@
 
 #card-selection{
     align-items: center;
-    margin-top: 200px;
+    margin-top: 150px;
+    top: 0px;
     margin-left: 50px;
   }
+
   
   .card{
     width: 300px;
@@ -13,7 +15,7 @@
     background-color:white;
     border-radius: 10px;
     margin-left: 5%;
-    margin-bottom: 100px; 
+    margin-bottom: 50px; 
   }
   
   

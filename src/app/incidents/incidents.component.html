@@ -13,37 +13,40 @@
 
                         <div class="form-group">
                           <label > Motif </label>
-                          <input type="text" [(ngModel)]="incident1.motif" class="form-control" name="motif" id="incidentMotif" placeholder="Motif"> 
+                          <input type="text" [(ngModel)]="incident1.motif" class="form-control" name="motif" id="incidentMotif"  placeholder="Motif" > 
                        </div>
                    
                         <div class="form-group">
                             <label > Date </label>
-                            <input type="date" [(ngModel)]="incident1.date" class="form-control" name="date" id="incidentDate" placeholder="DD/MM/YY">
+                            <input type="date" [(ngModel)]="incident1.date" class="form-control" name="date" id="incidentDate" placeholder="DD/MM/YYYY" >
                           </div>
 
-                         
+                          <div class="form-group">
+                            <label > Lieu </label>
+                            <input type="text" [(ngModel)]="incident1.lieu" class="form-control" name="lieu" id="incidentLieu" placeholder="Lieu" >
+                          </div>
 
                           <div class="form-group">
                             <label > Description </label>
                             <textarea type="text" [(ngModel)]="incident1.description" class="form-control" name="motif" id="incidentDescription" placeholder="Description"> </textarea>
                           </div>
 
-                          <div class="form-group">
-                            <label > Lieu </label>
-                            <input type="text" [(ngModel)]="incident1.lieu" class="form-control" name="lieu" id="incidentLieu" placeholder="Lieu">
-                          </div>
-
+                          
+                          
                           <div class="form-group">
                             <label > Image </label>
                             <input type="file"  class="form-control-file" id="incidentImage"     accept="image/*" (change)="showPreviewImage($event)">
                           </div>
-                          
+                        
                           <div class="form-group">
                              <img style="height: 50px; width: 50px;" [src]="localUrl" *ngIf="localUrl" class="imgPlaceholder">
                           </div>
-                         
-                      
-                        <button type="submit" id="button" class="btn btn-success" type="submit" name="submit_reg" value="Register" (click)="ajouterIncident()">Ajouter</button>
+                         <br>
+                         <br>
+                          <hr>
+                            <div class="text-center">
+                              <button type="submit" id="button" class="btn btn-success  btn-lg" name="submit_reg" value="Register" (click)="ajouterIncident()">Enregister</button>
+                            </div>
                       </form>       
                 </div>
   </div>
@@ -83,7 +86,7 @@
                         <td style="width:20%;" >
                           <div class=" text-center">
                               <br>
-                              <button (click)="supprimerIncident(incident.id)"  class="btn btn-md btn-danger ">
+                              <button (click)="supprimerIncident(incident.id)"  class="btn btn-sm btn-danger ">
                                   <i class="fa fa-trash"></i>
                               </button>
                           </div>
