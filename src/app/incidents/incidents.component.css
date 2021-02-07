@@ -13,6 +13,7 @@ color: #3E4759;
 
 
 #incidEtatNonTraité{
+  
     color : red;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-right: 50%;
@@ -36,6 +37,7 @@ color: #3E4759;
     float: right; 
     width: 40%;
     margin-right: -15%;
+  
    
 }
 .incidDate{
@@ -62,7 +64,7 @@ tr:after {
 }
 
 tbody {
-  height: 600px;
+  height: 560px;
   overflow-y: auto;
 }
 
@@ -92,6 +94,9 @@ max-height:150%;
 }
 
 
+.card{
+  height: auto;
+}
 
 
 

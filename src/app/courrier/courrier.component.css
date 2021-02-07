@@ -1,13 +1,12 @@
 html body{
     background-color: #EEEEEE !important;
 }
-.conteneur{
-    height: 100%;
-}
+
 
 #liste_event{
     width: 100%;
-    height: 665px;
+    height: 560px;
+    padding-top: 30px;
 }
 
 #row_event{
@@ -65,4 +64,8 @@ html body{
     border-radius: 50px;
     padding-left: 10px; 
 
+}
+
+.card{
+    height: 400px;
 }

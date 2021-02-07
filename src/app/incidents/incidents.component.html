@@ -1,39 +1,40 @@
 
 
 
+<h1>Gestion des incidents</h1>
+<br/>
+
 <div class="card-deck">
   <div class="card" >  
                 <div class="modal-body">
            
                           
                     <form >
-                        <div class="form-group">
-                          <label> Id: </label>
-                          <input type="text" [(ngModel)]="incident1.id" class="form-control"  name="id" id="incidentId" placeholder="ID">
-                        </div>
 
                         <div class="form-group">
-                            <label > Date: </label>
+                          <label > Motif </label>
+                          <input type="text" [(ngModel)]="incident1.motif" class="form-control" name="motif" id="incidentMotif" placeholder="Motif"> 
+                       </div>
+                   
+                        <div class="form-group">
+                            <label > Date </label>
                             <input type="date" [(ngModel)]="incident1.date" class="form-control" name="date" id="incidentDate" placeholder="DD/MM/YY">
                           </div>
 
-                          <div class="form-group">
-                            <label > Motif: </label>
-                            <input type="text" [(ngModel)]="incident1.motif" class="form-control" name="motif" id="incidentMotif" placeholder="Motif"> 
-                          </div>
+                         
 
                           <div class="form-group">
-                            <label > Description: </label>
+                            <label > Description </label>
                             <textarea type="text" [(ngModel)]="incident1.description" class="form-control" name="motif" id="incidentDescription" placeholder="Description"> </textarea>
                           </div>
 
                           <div class="form-group">
-                            <label > Lieu: </label>
+                            <label > Lieu </label>
                             <input type="text" [(ngModel)]="incident1.lieu" class="form-control" name="lieu" id="incidentLieu" placeholder="Lieu">
                           </div>
 
                           <div class="form-group">
-                            <label > Image: </label>
+                            <label > Image </label>
                             <input type="file"  class="form-control-file" id="incidentImage"     accept="image/*" (change)="showPreviewImage($event)">
                           </div>
                           
@@ -54,39 +55,39 @@
                 <thead class="thead-dark">
     
                     <tr>
-                        <th style="width:70%;" class="text-center" id="RDVl" scope="col" [appSort]="incidents" data-order="desc" data-name="id">Incident</th>
-                        <th style="width:30%;" class="text-center" id="RDVl" scope="col" [appSort]="incidents" data-order="desc" data-name="disponible"> Etat</th>
+                        <th style="width:50%;" class="text-center" id="RDVl" scope="col" [appSort]="incidents" data-order="desc" data-name="id">Incident</th>
+                        <th style="width:30%;" class="text" id="RDVl" scope="col" [appSort]="incidents" data-order="desc" data-name="disponible"> Etat</th>
+                        <th style="width:20%;" class="text-center" id="RDVl" scope="col" [appSort]="incidents" data-order="desc" data-name="disponible"> Operations</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let incident of incidents" data-toggle="modal" data-target="#incidentModal" (click)="openXl(content, incident)">
-                        <td style="width:70%;" >
-                            <div>
-                                <h2  class="mb-4 text-left">{{incident.motif}}</h2>
-    
-    
+                        <td style="width:50%;" >
+                            <div >
+                                <h4 class="mb-4 text-left"> {{incident.motif}}</h4>
                             </div>
                             <div >
-                                <h5 class="mb-4 text-left"> Motif : {{incident.motif}}</h5>
-    
-    
-                            </div>
-                            <div >
-                                <h5 class="mb-4 text-left">Le {{incident.date.substring(8, 10)}}/{{incident.date.substring(5, 7)}}/{{incident.date.substring(0, 4)}} à {{incident.date.substring(11, 16)}}</h5>
-    
-    
+                                <p class="mb-4 text-left">Le {{incident.date.substring(8, 10)}}/{{incident.date.substring(5, 7)}}/{{incident.date.substring(0, 4)}} à {{incident.date.substring(11, 16)}}</p>
                             </div>
                         </td>
                         <td  style="width:30%;" >
                             <div  [ngSwitch]="incident.etat">
-                                <br><br>
+                                <br>
                               
-                                  <h5 id="incidEtatEnCours" *ngSwitchCase="1" >En cours </h5>
-                                  <h5 id="incidEtatResolu" *ngSwitchCase="2" >Résolu </h5>
-                                  <h5 id="incidEtatNonTraité" *ngSwitchDefault >Non Traité </h5>
+                                <button *ngSwitchCase="1" class="btn btn-outline-primary btn-sm" DISABLED> En cours</button>
+                                <button *ngSwitchCase="1" class="btn btn-outline-success btn-sm" DISABLED> Résolu</button>
+                                <button *ngSwitchDefault class="btn btn-outline-danger btn-sm" DISABLED>Non traité</button>
                             
                             </div>
                         </td>
+                        <td style="width:20%;" >
+                          <div class=" text-center">
+                              <br>
+                              <button (click)="supprimerIncident(incident.id)"  class="btn btn-md btn-danger ">
+                                  <i class="fa fa-trash"></i>
+                              </button>
+                          </div>
+                      </td>
                     </tr>
     
                 </tbody>
@@ -114,25 +115,25 @@
       <div class="row">
           <div class="col">
                 <div class="form-group">
-                  <label for="staticEmail" class="col-sm-4 col-form-label">Lieu : </label>
+                  <label for="staticEmail" class="col-sm-4 col-form-label">Lieu</label>
                   <div class="col-sm-8">
                     <h5 class="form-control-plaintext" id="staticEmail" > {{incidentModel.etudiant.chambre}} </h5>
                   </div>
                 </div>
 
                 <div class="form-group ">
-                  <label for="staticEmail" class="col-sm-4 col-form-label">Signalé le : </label>
+                  <label for="staticEmail" class="col-sm-4 col-form-label">Signalé le</label>
                   <div class="col-sm-8">
                     <h5 class="form-control-plaintext" id="staticEmail" > {{incidentModel.date.substring(8, 10)}}/{{incidentModel.date.substring(5, 7)}}/{{incidentModel.date.substring(0, 4)}} à {{incidentModel.date.substring(11, 16)}} </h5>
                   </div>
                 </div>
 
-                <div class="incidEtat" [ngSwitch]="incidentModel.etat">
-                  <h5 style="margin-right: 20%;" id="incidEtatEnCours" *ngSwitchCase="1" > &reg; En cours </h5>
-                  <h5 style="margin-right: 20%;" id="incidEtatResolu" *ngSwitchCase="2" > &reg; Résolu </h5>
-                  <h5 style="margin-right: 20%;" id="incidEtatNonTraité" *ngSwitchDefault > &reg; Non Traité </h5>
+                <div class=" incidEtat" [ngSwitch]="incidentModel.etat">
+                  <button *ngSwitchCase="1" class="btn btn-outline-primary btn-sm" DISABLED> En cours</button>
+                  <button *ngSwitchCase="1" class="btn btn-outline-success btn-sm" DISABLED> Résolu</button>
+                  <button *ngSwitchDefault class="btn btn-outline-danger btn-sm" DISABLED>Non traité</button>
+         
                 </div>
-
             
 
                 <div class="form-group ">
@@ -140,12 +141,17 @@
                       <div class="col-sm-8">
                         <h5 class="form-control-plaintext" id="staticEmail" > {{incidentModel.motif}} </h5>
                       </div>
-                </div>   
+                </div>  
+                
+                
           </div>
             <div class="col">
               <div class="form-group">
                 <img style="margin-left: 10px; height: 260px; width: 500px;" src="../../assets/crous.jpg"  >
               </div>
+
+             
+
             </div>
 
       </div>

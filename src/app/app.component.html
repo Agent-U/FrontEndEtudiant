@@ -3,21 +3,58 @@
 <div class="contenu">
 
     <div class="toolbar" role="banner">
-      <div class="image_logo">
-        <img id="logo" src="assets/logoAgentU.png" width="60" height="60" alt="">
-        <h3 id="user_name" type="button" data-toggle="modal" data-target="#exampleModal">{{etudiant.nom}} {{etudiant.prenom}}</h3>
-        
+      <div class="row" style="width: 100%;">
+        <div class="col-8 image_logo" >
+          <img id="logo" style="margin-left: 75%;" src="assets/logoAgentU.png" width="80" height="80" alt="">
+        </div>
+        <div class="col-4" >
+          <h3 id="user_name" type="button"  data-toggle="modal" data-target="#exampleModal">{{etudiant.nom}} {{etudiant.prenom}}</h3>
+        </div>
       </div>
+      
     </div>
     <span class="horizontal-line"></span>
+
+
+
     <div class="bar_nav">
-      <nav class="navbar navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark border-top border-danger">
         <a class="navbar-brand" href="#">
-          <img src="favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="">
-          AgentU
+          <img src="assets/logoAgentU.png" width="60" height="60" class="d-inline-block align-top" alt="">
         </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
     
-      </nav>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <a class="nav-link" href="#" [routerLink]="['']">Home </a>
+                </li>
+                <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <a class="nav-link" href="courriers" [routerLink]="['/courrier']">Courriers</a>
+                </li>
+                <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <a class="nav-link" href="rendezVous" [routerLink]="['/rendezVous']">Rendez-Vous</a>
+                </li>
+                <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                  <a class="nav-link" href="incidents" [routerLink]="['/incidents']">Incidents</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+                <button type="button" class="btn btn-dark"> 
+                    <span class="badge bg-danger ms-2">8</span>
+                    <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
+    
+                </button>
+                <button type="button" class="btn btn-dark"> 
+                    <span class="badge bg-danger ms-2">8</span>
+                    <i class="fa fa-calendar fa-2x" ></i>
+                </button>
+            </form>
+        </div>
+    </nav>
+    
     </div>
 
     <!--Model -->
@@ -79,15 +116,7 @@
         </div>
       </div>
 
-
+<div class="container">
 <router-outlet></router-outlet>
-
-<footer >
-    <!-- Copyright -->
-    <div class="text-center p-3 text-secondary" >
-      © 2020 Copyright:
-      <a class="text-secondary" href="https://mdbootstrap.com/">AgentU</a>
-    </div>
-    <!-- Copyright -->
-  </footer> 
 </div>
+
