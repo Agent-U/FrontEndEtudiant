@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Incident } from '../incident';
+import { Incident } from '../../model/incident';
 
 const optionRequete = {
   headers: new HttpHeaders({ 

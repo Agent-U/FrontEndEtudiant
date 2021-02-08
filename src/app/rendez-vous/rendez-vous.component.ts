@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { RendezVous } from '../rendezVous';
+import { RendezVous } from '../../model/rendezVous';
 import { RendezVousService } from '../serviceRendezVous/rendez-vous.service';
 import { FormsModule } from '@angular/forms';
-import { Etudiant } from 'src/etudiant';
+import { Etudiant } from 'src/model/etudiant';
 
 @Component({
   selector: 'app-rendez-vous',

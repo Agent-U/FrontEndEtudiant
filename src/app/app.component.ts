@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Etudiant } from 'src/etudiant';
+import { Etudiant } from 'src/model/etudiant';
 import { Acceuil } from 'src/model/acceuil';
 import { AppServiceService } from './app-service.service';
 import { CourrierService } from './serviceCourrier/courrier.service';
