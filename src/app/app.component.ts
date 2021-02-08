@@ -3,6 +3,7 @@ import { Etudiant } from 'src/model/etudiant';
 import { Acceuil } from 'src/model/acceuil';
 import { AppServiceService } from './app-service.service';
 import { CourrierService } from './serviceCourrier/courrier.service';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +12,10 @@ import { CourrierService } from './serviceCourrier/courrier.service';
 })
 export class AppComponent implements OnInit{
   title = 'FrontEndEtudiant';
-
+  nbIncidents : any;
   etudiant: any = new Etudiant("23");
   isClose : any;
-
+  nbincident :number = 0;
 
 
 
@@ -57,8 +58,24 @@ public getIsClose(){
 }
 
 public getNbCourrier(){
+  //this.nbincident = this.getNbIncident();
  return this.etudiant.petiteEnveloppe + this.etudiant.grandeEnveloppe + this.etudiant.avisPassage + this.etudiant.colis;
  
+}
+
+public getNbIncident(){
+  var val:any
+  var count :number = 0;
+  this.nbIncidents = this.etudiant.incidents;
+ 
+  for(var i = 0; i < this.nbIncidents.length; ++i){
+    if(this.nbIncidents[i].etat == 1){
+      count++;
+    }
+ }
+
+ return count;
+
 }
 
 
