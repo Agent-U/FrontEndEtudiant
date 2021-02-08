@@ -1,0 +1,103 @@
+
+<br/>
+<h1>Gestion du Courrier</h1>
+<br/>
+<div class="card-deck">
+<div class="card" id="liste_event">
+    <div class="row"  id="row_event">
+        <div class="table_courrier" >
+            <div class="row">
+                    <div class="col detail_courrier_main">
+                        <h3>Type de Courrier</h3>
+                    </div> 
+                    <span class="vertical-line-main"></span>
+                    <div class="col detail_courrier_main">
+                        <h3>Nombre</h3>
+                    </div> 
+                    <span class="vertical-line-main"></span>
+                    <div class="col detail_courrier_main">
+                        <h3>Date</h3>
+                    </div> 
+            </div>   
+        </div>
+            <div class="one_event" >
+                <div class="row">
+                    <div class="col detail_courrier">
+                        <h3>Petite Enveloppe</h3>
+                    </div> 
+                    <span class="vertical-line"></span>
+                    <div class="col detail_courrier">
+                        <h3>{{courriers.petiteEnveloppe}}</h3>
+                    </div> 
+                    <span class="vertical-line"></span>
+                    <div class="col detail_courrier"  *ngIf="courriers.datePetiteEnveloppe == null else loading1">
+                        <h3>_</h3>
+                    </div> 
+                        <ng-template #loading1>
+                            <div class="col detail_courrier" > <h3>{{courriers.datePetiteEnveloppe.substring(8, 10)}}/{{courriers.datePetiteEnveloppe.substring(5, 7)}}/{{courriers.datePetiteEnveloppe.substring(0, 4)}}</h3></div>
+                           </ng-template>
+                   
+                   
+                </div>   
+            </div>
+            <div class="one_event" >
+                <div class="row">
+                    <div class="col detail_courrier">
+                        <h3>Grande Enveloppe</h3>
+                    </div> 
+                    <span class="vertical-line"></span>
+                    <div class="col detail_courrier">
+                        <h3>{{courriers.grandeEnveloppe}}</h3>
+                    </div> 
+                    <span class="vertical-line"></span>
+                    <div class="col detail_courrier"  *ngIf="courriers.dateGrandeEnveloppe == null else loading2">
+                        <h3>_</h3>
+                    </div> 
+                        <ng-template #loading2>
+                            <div class="col detail_courrier" > <h3>{{courriers.dateGrandeEnveloppe.substring(8, 10)}}/{{courriers.dateGrandeEnveloppe.substring(5, 7)}}/{{courriers.dateGrandeEnveloppe.substring(0, 4)}}</h3></div>
+                           </ng-template>
+                </div>   
+            </div>
+            <div class="one_event" >
+                <div class="row">
+                    <div class="col detail_courrier">
+                        <h3>Avis De Passage</h3>
+                    </div> 
+                    <span class="vertical-line"></span>
+                    <div class="col detail_courrier">
+                        <h3>{{courriers.avisPassage}}</h3>
+                    </div> 
+                    <span class="vertical-line"></span>
+                    <div class="col detail_courrier"  *ngIf="courriers.dateAvisPassage == null else loading3">
+                        <h3>_</h3>
+                    </div> 
+                        <ng-template #loading3>
+                            <div class="col detail_courrier" > <h3>{{courriers.dateAvisPassage.substring(8, 10)}}/{{courriers.dateAvisPassage.substring(5, 7)}}/{{courriers.dateAvisPassage.substring(0, 4)}}</h3></div>
+                           </ng-template>
+                </div>   
+            </div>
+            <div class="one_event" >
+                <div class="row">
+                    <div class="col detail_courrier">
+                        <h3>Colis</h3>
+                    </div> 
+                    <span class="vertical-line"></span>
+                    <div class="col detail_courrier">
+                        <h3>{{courriers.colis}}</h3>
+                    </div> 
+                    <span class="vertical-line"></span>
+                    <div class="col detail_courrier"  *ngIf="courriers.dateColis == null else loading4">
+                        <h3>_</h3>
+                    </div> 
+                        <ng-template #loading4>
+                            <div class="col detail_courrier" > <h3>{{courriers.dateColis.substring(8, 10)}}/{{courriers.dateColis.substring(5, 7)}}/{{courriers.dateColis.substring(0, 4)}}</h3></div>
+                           </ng-template>
+                </div>   
+            </div>
+      
+      
+    </div>
+</div>
+
+</div>
+

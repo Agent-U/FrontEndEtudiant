@@ -1,0 +1,50 @@
+thead,
+tbody,
+tr,
+td,
+th {
+    display: block;
+}
+
+tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+tbody {
+    height: 600px;
+    overflow-y: auto;
+}
+
+tbody td,
+thead th {
+    width: 50%;
+    float: left;
+}
+
+th {
+    text-align: center;
+}
+
+#imageEvent {
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    height: 700px;
+}
+
+.modal-content {
+    width: 200%;
+    margin-left: -50%;
+}
+
+#buttonAjout{
+    position: absolute;
+    bottom: 5%;
+    left: 44%;
+}
+.fa-unsorted {
+    margin-left: 20px;
+}

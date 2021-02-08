@@ -1,0 +1,56 @@
+
+<br/>
+<h1>Evenements</h1>
+<br/>
+<br/>
+
+
+<div class="card-deck">
+    <div class="card">
+
+        <div class="modal-body">
+
+            <table id="example" class="table table-striped table-hover table-fixed">
+                <thead class="thead-dark">
+
+                    <tr>
+                        <th style="width:100%;" class="text-center" id="RDVl" scope="col" [appSort]="events" data-order="desc" data-name="id">Evenements <i class="fa fa-unsorted" disabled></i> </th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let event of events">
+                        <td style="width:100%;" (click)="eventClicked(event.image_url)">
+                            <div>
+                                <h2 class="mb-4 text-left"> {{event.titre}} </h2>
+
+
+                            </div>
+                            <div>
+                                <h5 class="mb-4 text-left"> {{event.detail}}</h5>
+
+
+                            </div>
+                        </td>
+                        
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <img *ngIf="image_url != 'init'" src="assets/evenement/{{image_url}}" alt="image" id="imageEvent" />
+
+
+    </div>
+
+</div>
+<br><br>
