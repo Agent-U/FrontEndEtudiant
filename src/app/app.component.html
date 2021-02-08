@@ -21,7 +21,7 @@
     <div class="bar_nav">
       <nav class="navbar navbar-expand-sm navbar-dark bg-dark border-top border-danger">
         <a class="navbar-brand" href="#">
-          <img src="assets/logoAgentU.png" width="60" height="60" class="d-inline-block align-top" alt="">
+          <img src="assets/logoAgentU-cercle.png" width="40" height="40"  alt=""> AgentU
         </a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -30,7 +30,7 @@
     
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                    <a class="nav-link" href="#" [routerLink]="['']">Home </a>
+                    <a class="nav-link" href="#" [routerLink]="['']">Accueil </a>
                 </li>
                 <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                     <a class="nav-link" href="courriers" [routerLink]="['/courrier']">Courriers</a>
@@ -41,23 +41,30 @@
                 <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                   <a class="nav-link" href="incidents" [routerLink]="['/incidents']">Incidents</a>
               </li>
+              <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link" href="evenements" [routerLink]="['/evenements']">Evenements</a>
+            </li>
             </ul>
             <form class="d-flex">
-              <button type="button" class="btn btn-dark"> 
-                <span class="badge bg-danger ms-2">{{getNbCourrier()}}</span>
-                <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i>
-
-            </button>
-                <button type="button" class="btn btn-dark"> 
+              <a  data-toggle="tooltip" href="/courrier" data-placement="bottom" title="L'accueil est fermé.">
+                  <button type="button"  class="btn btn-dark"> 
+                    <span class="badge bg-danger ms-2">{{getNbCourrier()}}</span>
+                    <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i>
+                </button>
+              </a>
+              <a  data-toggle="tooltip" href="/incidents" data-placement="bottom" title="L'accueil est fermé.">
+                <button type="button"  class="btn btn-dark"> 
                     <span class="badge bg-danger ms-2">{{getNbIncident()}}</span>
                     <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
                 </button>
 
-                <a *ngIf=isClose.close class="acceuil" data-toggle="tooltip" data-placement="bottom" title="L'accueil est fermé.">
-                  <button class="btn btn-outline-danger btn-sm" DISABLED>Fermé</button>
+              </a>
+
+                <a *ngIf=isClose.close  class="acceuil" data-toggle="tooltip" data-placement="bottom" title="L'accueil est fermé.">
+                  <button class="btn btn-danger btn-sm" DISABLED>Accueil <i class="fa fa-lock" aria-hidden="true"></i></button>
                </a>
                <a *ngIf=!isClose.close class="acceuil" data-toggle="tooltip" data-placement="bottom" title="L'accueil est ouvert.">
-                <button class="btn btn-outline-success btn-sm" DISABLED>Ouvert</button>
+                <button class="btn btn-success btn-sm" DISABLED>Accueil <i class="fa fa-unlock" aria-hidden="true"></i></button>
              </a>
               
                   

@@ -3,6 +3,7 @@
 
 <h1>Gestion des incidents</h1>
 <br/>
+<br/>
 
 <div class="card-deck">
   <div class="card" >  
@@ -30,10 +31,11 @@
                             <label > Description </label>
                             <textarea type="text" [(ngModel)]="incident1.description" class="form-control" name="motif" id="incidentDescription" placeholder="Description"> </textarea>
                           </div>
-
+                          <br>
                           <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="inputTitre">Image</label>
+                                <br>
                                 <input accept="image/*" type="file" (change)="showPreviewImage($event)">
                             </div>
                         </div>
