@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ViewEncapsulation } from '@angular/core';
 import { IncidentsService } from '../serviceIncidents/incidents.service';
-import {Incident} from '../incident';
+import {Incident} from '../../model/incident';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { RendezVous } from '../rendezVous';
+import { RendezVous } from '../../model/rendezVous';
 
 const optionRequete = {
   headers: new HttpHeaders({ 
