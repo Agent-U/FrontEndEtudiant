@@ -20,13 +20,14 @@ export class IncidentsComponent implements OnInit {
   localUrl: any;
   uploadForm: any ; 
   etudiant: any;
+  idEtudiantsActuel : any = "qsfds";
   constructor(private service: IncidentsService, private modalService: NgbModal, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     let resp = this.service.getIncidents();
     resp.subscribe((data)=>this.incidents=data);
     
-    let respEtu = this.service.getEtudiantWithId("23");
+    let respEtu = this.service.getEtudiantWithId(this.idEtudiantsActuel);
     respEtu.subscribe((data)=>this.etudiant=data);
 
     this.uploadForm = this.formBuilder.group({
