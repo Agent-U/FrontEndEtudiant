@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { Incident } from '../incident';
+import { Incident } from '../../model/incident';
 
 import { IncidentsService } from './incidents.service';
 

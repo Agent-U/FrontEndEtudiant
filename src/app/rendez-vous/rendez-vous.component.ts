@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { RendezVous } from '../rendezVous';
+import { RendezVous } from '../../model/rendezVous';
 import { RendezVousService } from '../serviceRendezVous/rendez-vous.service';
 import { FormsModule } from '@angular/forms';
-import { Etudiant } from 'src/etudiant';
+import { Etudiant } from 'src/model/etudiant';
 
 @Component({
   selector: 'app-rendez-vous',
@@ -42,13 +42,13 @@ export class RendezVousComponent implements OnInit {
   }
 
   afficheDisponibilite(agentId : any){
+
     this.selectRendezVous = [];
     for (let index = 0; index < this.listeRendezVous.length; index++) {
       if((this.listeRendezVous[index].agent.id == agentId)&&(this.listeRendezVous[index].disponible==true))
       this.selectRendezVous.push(this.listeRendezVous[index]);
       
     }
-
     
 
   }

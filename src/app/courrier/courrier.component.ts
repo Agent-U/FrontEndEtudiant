@@ -12,7 +12,7 @@ export class CourrierComponent implements OnInit {
   constructor(private service:CourrierService) { }
 
   ngOnInit(): void {
-    let resp = this.service.getCourriers("qsdf");
+    let resp = this.service.getCourriers("qsfds");
     resp.subscribe((data)=>this.courriers=data);
    
   }
