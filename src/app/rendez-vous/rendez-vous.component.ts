@@ -42,13 +42,13 @@ export class RendezVousComponent implements OnInit {
   }
 
   afficheDisponibilite(agentId : any){
+
     this.selectRendezVous = [];
     for (let index = 0; index < this.listeRendezVous.length; index++) {
       if((this.listeRendezVous[index].agent.id == agentId)&&(this.listeRendezVous[index].disponible==true))
       this.selectRendezVous.push(this.listeRendezVous[index]);
       
     }
-
     
 
   }

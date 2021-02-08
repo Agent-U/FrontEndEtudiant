@@ -25,4 +25,7 @@ export class AppServiceService {
     return this.http.put("/api/etudiants/",etudiant,optionRequete);
  
   }
+  public getEtatAccueil(){
+    return this.http.get("/api/agents/isClose",optionRequete);
+  }
 }

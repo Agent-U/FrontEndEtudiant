@@ -45,5 +45,7 @@ export class RendezVousService {
   
   public editRendezVous(rendezVous:RendezVous){
     return this.http.put("/api/rendezVous/",rendezVous,optionRequete);
-  }  
+  } 
+  
+ 
 }

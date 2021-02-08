@@ -9,6 +9,7 @@
         </div>
         <div class="col-4" >
           <h3 id="user_name" type="button"  data-toggle="modal" data-target="#exampleModal">{{etudiant.nom}} {{etudiant.prenom}}</h3>
+         
         </div>
       </div>
       
@@ -43,25 +44,27 @@
             </ul>
             <form class="d-flex">
               <button type="button" class="btn btn-dark"> 
-                <span class="badge bg-danger ms-2">8</span>
+                <span class="badge bg-danger ms-2">{{getNbCourrier()}}</span>
                 <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i>
 
             </button>
                 <button type="button" class="btn btn-dark"> 
-                    <span class="badge bg-danger ms-2">8</span>
+                    <span class="badge bg-danger ms-2"></span>
                     <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
-    
-                </button>
-                <button type="button" class="btn btn-dark"> 
-                    <span class="badge bg-danger ms-2">8</span>
-                    <i class="fa fa-calendar fa-2x" ></i>
                 </button>
 
-                <button type="button" class="btn btn-dark" data-container="body"> 
-                 
-                  <i class="fa fa-home fa-2x text-danger" ></i>
+                <a *ngIf=isClose.close class="acceuil" data-toggle="tooltip" data-placement="bottom" title="L'accueil est fermé.">
+                  <button class="btn btn-outline-danger btn-sm" DISABLED>Fermé</button>
+               </a>
+               <a *ngIf=!isClose.close class="acceuil" data-toggle="tooltip" data-placement="bottom" title="L'accueil est ouvert.">
+                <button class="btn btn-outline-success btn-sm" DISABLED>Ouvert</button>
+             </a>
+              
                   
-              </button>
+                 
+                
+                
+            
             </form>
         </div>
     </nav>
