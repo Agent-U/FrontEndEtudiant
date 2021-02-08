@@ -9,7 +9,7 @@ import { EventService } from '../event.service';
 })
 export class EventComponent implements OnInit {
   events: any;
-  image_url:any;
+  image_url:any = "init";
   constructor(private service:EventService) { }
 
   ngOnInit(): void {

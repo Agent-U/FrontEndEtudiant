@@ -41,7 +41,11 @@ export class IncidentsComponent implements OnInit {
     
    const formData = new FormData();
    formData.append('file', this.uploadForm.get('profile').value);
+
+
+
    this.incident1.id= this.incidents.length;
+    
    this.incident1.etudiant = this.etudiant ;
    this.incident1.etudiant.incidents = null;
    this.incident1.etudiant.rendezVous = null;
