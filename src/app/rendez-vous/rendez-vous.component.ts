@@ -11,9 +11,9 @@ import { Etudiant } from 'src/model/etudiant';
 })
 export class RendezVousComponent implements OnInit {
 
-  idEtudiantsActuel = '23';
+  idEtudiantsActuel = 'qsfds';
   //etudianteConnec : any;
-  etudiant = new Etudiant("23");
+  etudiant = new Etudiant("qsfds");
   listeRendezVous : any= [];
   listeAgent : any;
   selectRendezVous : RendezVous[] = [];
@@ -83,7 +83,7 @@ export class RendezVousComponent implements OnInit {
 
     if(this.isSelectedRendezVous){
       this.selectedRendezVous.motif = this.motif;
-      this.etudiant.ine = "23";
+      this.etudiant.ine = "qsfds";
       this.selectedRendezVous.disponible = false;
  
 
